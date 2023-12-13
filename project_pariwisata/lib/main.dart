@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:project_pariwisata/view/splashscreen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ExploraTrip());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ExploraTrip extends StatelessWidget {
+  const ExploraTrip({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: splashScreen(),
+      home: SplashScreen(),
     );
   }
 }
+// original

@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
-import 'package:project_pariwisata/view/homepage.dart';
+import 'package:project_pariwisata/view/landingpage.dart';
 
-class splashScreen extends StatefulWidget {
-  const splashScreen({super.key});
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
 
-  @override
-  State<splashScreen> createState() => _splashScreenState();
-}
-
-class _splashScreenState extends State<splashScreen> {
   @override
   Widget build(BuildContext context) {
-    final MediaQueryHeight = MediaQuery.of(context).size.height;
-    final MediaQueryWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: FlutterSplashScreen.fadeIn(
         backgroundColor: Colors.white,
@@ -24,15 +17,18 @@ class _splashScreenState extends State<splashScreen> {
           debugPrint("On End");
         },
         childWidget: SizedBox(
-          height: double.infinity,
-          width: double.infinity,
+          height: 250,
+          width: 250,
           child: Image.asset(
+            //height: 300,
+            //width: 300,
+            fit: BoxFit.cover,
             "assets/images/logopariwisata.png",
           ),
         ),
         onAnimationEnd: () => debugPrint("On Fade In End"),
         duration: const Duration(seconds: 5),
-        nextScreen: HomePage(),
+        nextScreen: const LandingPage(),
       ),
     );
   }
