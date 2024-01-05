@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_pariwisata/model/model_topdestination.dart';
+import 'package:project_pariwisata/view/detaildestinationcategorybeach.dart';
+import 'package:project_pariwisata/view/detaildestinationcategorycamping.dart';
+import 'package:project_pariwisata/view/detaildestinationcategoryforest.dart';
+import 'package:project_pariwisata/view/detaildestinationcategoryhiking.dart';
+import 'package:project_pariwisata/view/detaildestinationcategorymountain.dart';
 import 'package:project_pariwisata/view/detailpagedestination.dart';
-
 
 String image1 = "assets/images/forest.png";
 String image2 = "assets/images/camp.png";
@@ -40,7 +44,8 @@ class _HomePageState extends State<HomePage> {
 
     List<dynamic> showPage = [
       _homePage(mediaqueryHeight, mediaqueryWidth),
-      _userPage(mediaqueryHeight, mediaqueryWidth)
+      Center(child: Text("This is map page")),
+      _userPage(mediaqueryHeight, mediaqueryWidth),
     ];
     return Scaffold(
       backgroundColor: Colors.white,
@@ -155,7 +160,8 @@ class _HomePageState extends State<HomePage> {
       currentIndex: numberbottomnavigationBar,
       items: const [
         BottomNavigationBarItem(icon: Icon(FeatherIcons.home), label: "Home"),
-        BottomNavigationBarItem(icon: Icon(FeatherIcons.user), label: "User")
+        BottomNavigationBarItem(icon: Icon(FeatherIcons.map), label: "Map"),
+        BottomNavigationBarItem(icon: Icon(FeatherIcons.user), label: "User"),
       ],
       onTap: (value) {
         setState(() {
@@ -261,14 +267,41 @@ class _HomePageState extends State<HomePage> {
       width: mediaqueryWidth,
       //color: Colors.amber.shade100,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        CustomDestinationCategory(
-          image: image1,
-          text: "Forest",
+        InkWell(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) {
+                return const DetailDestinationCategoryForest();
+              },
+            ));
+          },
+          child: CustomDestinationCategory(
+            image: image1,
+            text: "Forest",
+          ),
         ),
-        CustomDestinationCategory(image: image2, text: "Camping"),
-        CustomDestinationCategory(image: image3, text: "Hiking"),
-        CustomDestinationCategory(image: image4, text: "Mountain"),
-        CustomDestinationCategory(image: image5, text: "Beach")
+        InkWell(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      const DetailDestinationCategoryCamping(),
+                )),
+            child: CustomDestinationCategory(image: image2, text: "Camping")),
+        InkWell(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const DetailDestinationCategoryHiking(),
+                )),
+            child: CustomDestinationCategory(image: image3, text: "Hiking")),
+        InkWell(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      const DetailDestinationCategoryMountain(),
+                )),
+            child: CustomDestinationCategory(image: image4, text: "Mountain")),
+        InkWell(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const DetailDestinationCategoryBeach(),
+                )),
+            child: CustomDestinationCategory(image: image5, text: "Beach"))
       ]),
     );
   }

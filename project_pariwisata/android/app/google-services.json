@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1056706439681",
+    "project_id": "project-pariwisatatakengon",
+    "storage_bucket": "project-pariwisatatakengon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056706439681:android:1bd9e6498a15f39aebee00",
+        "android_client_info": {
+          "package_name": "com.example.project_pariwisata"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0HFriLGdDV_JlVajj5YuZgPIhRseVcig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
